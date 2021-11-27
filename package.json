@@ -1,13 +1,13 @@
 {
-  "name": "gogpol",
-  "version": "2.0.0",
+  "name": "gogpolsss",
+  "version": "8.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "publishConfig": {
-    "ryihan:gogpol": "https://npm.pkg.github.com"
+    "ryihan:gogpolsss": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
