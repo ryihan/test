@@ -1,24 +1,33 @@
-name: PUBLISH
+name: Node.js Package
+
 on:
-  push:
-    branches: 
-      - main
-jobs:
   release:
-    name: Publish
-    runs-on: ubuntu-latest 
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name : checkout
-        uses: actions/checkout@v2
-      # Setup .npmrc file to publish to GitHub Packages
-      - name : checkout
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          # scope: '@octocat'
-      - name : Publish
-        run: npm publish
+          node-version: 12
+      - run: npm ci
+      - run: npm test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SS }}
+          NODE_AUTH_TOKEN: ${{secrets.SS}}
