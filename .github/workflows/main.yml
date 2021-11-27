@@ -19,7 +19,6 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           # scope: '@octocat'
       - name : Publish
-      - run: npm install
-      - run: npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SS }}
