@@ -1,14 +1,13 @@
 {
-  "name": "test",
+  "name": "gogpol",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  
   "publishConfig": {
-    "ryihan:test": "https://npm.pkg.github.com"
+    "ryihan:gogpol": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
@@ -20,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ryihan/test/issues"
   },
-  "homepage": "https://github.com/ryihan/test#readme"
+  "homepage": "https://github.com/ryihan/test#readme",
+  "dependencies": {
+   
+  }
 }
